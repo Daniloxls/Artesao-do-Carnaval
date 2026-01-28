@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bdt8vvsrbf8ot"]
+
+[ext_resource type="Script" uid="uid://c5r85rx8ro0i3" path="res://scripts/mask_item.gd" id="1_rv8xw"]
+[ext_resource type="Texture2D" uid="uid://bu1ys4tpgm7wg" path="res://icon_cut.svg" id="2_rv8xw"]
+
+[node name="Mask" type="Node2D" unique_id=651967657 node_paths=PackedStringArray("mask_sprite")]
+script = ExtResource("1_rv8xw")
+mask_sprite = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://c5r85rx8ro0i3"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1967956267]
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("2_rv8xw")
+
+[node name="Slot1" type="Marker2D" parent="." unique_id=1544495527]
+
+[node name="Slot2" type="Marker2D" parent="." unique_id=1666643945]

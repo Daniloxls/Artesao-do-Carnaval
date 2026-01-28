@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b1ey71kxajfvy"]
+
+[ext_resource type="Script" uid="uid://cenidfavaf2h3" path="res://scripts/paint_station.gd" id="1_i24x1"]
+[ext_resource type="Texture2D" uid="uid://bsw6yqsms1pbp" path="res://assets/Basic_Furniture.png" id="2_i24x1"]
+[ext_resource type="Texture2D" uid="uid://chru83w3ii8vp" path="res://icon.svg" id="3_w26pa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olh0b"]
+atlas = ExtResource("2_i24x1")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u03e6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olh0b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
+size = Vector2(84, 85)
+
+[node name="PaintingStation" type="StaticBody2D" unique_id=936571725]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_i24x1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2061457135]
+modulate = Color(2.2234871, 2.2234871, 2.2234871, 1)
+position = Vector2(2, -1)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_u03e6")
+
+[node name="ItemPoint" type="Marker2D" parent="." unique_id=643525280]
+position = Vector2(1, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658189886]
+position = Vector2(2, 11.5)
+shape = SubResource("RectangleShape2D_eotx8")
+
+[node name="TintaSprite" type="Sprite2D" parent="." unique_id=579382767]
+self_modulate = Color(5.912981, 5.912981, 5.912981, 1)
+position = Vector2(1, -4)
+scale = Vector2(0.3046875, 0.3046875)
+texture = ExtResource("3_w26pa")

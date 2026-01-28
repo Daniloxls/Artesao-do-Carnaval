@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d2a05f3dyaice"]
+
+[ext_resource type="Texture2D" uid="uid://chru83w3ii8vp" path="res://icon.svg" id="1_4gq7n"]
+[ext_resource type="Script" uid="uid://v2veqtgplieh" path="res://scripts/item.gd" id="1_s8enn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8enn"]
+atlas = ExtResource("1_4gq7n")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6muww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8enn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Item" type="Node2D" unique_id=394787337]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_s8enn")
+
+[node name="MaskSprite" type="AnimatedSprite2D" parent="." unique_id=424315042]
+sprite_frames = SubResource("SpriteFrames_6muww")
+
+[node name="RibbonSprite" type="AnimatedSprite2D" parent="." unique_id=1726749016]
+
+[node name="AccessorySprite" type="AnimatedSprite2D" parent="." unique_id=1662845004]

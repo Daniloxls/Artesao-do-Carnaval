@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://nt5t0hxhfrsc"]
+
+[ext_resource type="Script" uid="uid://pa5dmulpoeat" path="res://scripts/prop_item.gd" id="1_8jea4"]
+[ext_resource type="Texture2D" uid="uid://ilj16ufxxr15" path="res://mouth.svg" id="1_72fag"]
+
+[node name="Mouth" type="Node2D" unique_id=1966069781]
+script = ExtResource("1_8jea4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1590924342]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_72fag")
