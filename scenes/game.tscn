@@ -8,8 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://cre0xkrvjtdba" path="res://scenes/tables/cutting_station.tscn" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://gqaj3w4q03er" path="res://scenes/materials/papelao.tscn" id="5_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://evcge2smdawm" path="res://scenes/tables/trash.tscn" id="6_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://bis2hsaiydhko" path="res://assets/keyboard_arrow_up.png" id="7_ca42v"]
+[ext_resource type="Texture2D" uid="uid://df275d7fqrgm1" path="res://assets/fb2077.png" id="7_ir15t"]
+[ext_resource type="Texture2D" uid="uid://denoqgdwsl3m3" path="res://assets/fb2078.png" id="8_ca42v"]
+[ext_resource type="Texture2D" uid="uid://dvoqtlx5r831v" path="res://assets/fb2079.png" id="9_rysoc"]
 [ext_resource type="PackedScene" uid="uid://jekn5447hyym" path="res://scenes/props/horns.tscn" id="9_vtaks"]
 [ext_resource type="PackedScene" uid="uid://nt5t0hxhfrsc" path="res://scenes/props/mouth.tscn" id="10_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://cmrvl65n3br4r" path="res://assets/fb2080.png" id="10_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://bqg85yjxefsjy" path="res://scenes/tables/multi_color_source.tscn" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://m0dtkrisgc7i" path="res://scenes/tables/glue_pot.tscn" id="11_kvpfn"]
 
 [node name="Node2D" type="Node2D"]
@@ -44,6 +50,11 @@ item_scene = ExtResource("5_u5sy4")
 
 [node name="CuttingStation" parent="." instance=ExtResource("5_gee14")]
 position = Vector2(430, 517)
+arrow_texture = ExtResource("7_ca42v")
+texture_up = ExtResource("7_ir15t")
+texture_down = ExtResource("8_ca42v")
+texture_left = ExtResource("9_rysoc")
+texture_right = ExtResource("10_ssvqc")
 output_scene = ExtResource("4_p57ef")
 
 [node name="Trash" parent="." instance=ExtResource("6_0tnpc")]
@@ -57,5 +68,8 @@ item_scene = ExtResource("9_vtaks")
 position = Vector2(227, 171)
 item_scene = ExtResource("10_kvpfn")
 
+[node name="MultiColorSource" parent="." unique_id=1754918619 instance=ExtResource("11_kvpfn")]
+position = Vector2(624, 389)
+item_scene = ExtResource("5_u5sy4")
 [node name="GluePot" parent="." instance=ExtResource("11_kvpfn")]
 position = Vector2(338, 183)
