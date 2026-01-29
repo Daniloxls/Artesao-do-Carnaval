@@ -45,9 +45,12 @@ func _process(delta: float) -> void:
 
 func interact(player: CharacterBody2D):
 	activePlayer = player
-	if(progress > 0):
-		activePlayer.is_locked = true
-		isStirring = true
+	if (activePlayer.held_item == null):
+		if(progress > 0):
+			activePlayer.is_locked = true
+			isStirring = true
+	elif(activePlayer.held_item is MaskItem):
+		(activePlayer.held_item as MaskItem).with_glue = true
 
 func _on_spawn_timer_timeout() -> void:
 	var choiced = puddles.pick_random()

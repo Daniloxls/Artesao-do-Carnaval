@@ -5,6 +5,7 @@ class_name  MaskItem
 
 var max_props: int = 2
 var current_props: Array[String] = []
+var with_glue: bool = false
 
 @onready var slot1: Marker2D = $Slot1
 @onready var slot2: Marker2D = $Slot2

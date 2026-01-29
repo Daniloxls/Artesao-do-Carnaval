@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b1qlv1430rp50" path="res://assets/glue_pot.png" id="1_m34ja"]
 [ext_resource type="AudioStream" uid="uid://c7qwl1al1w8h4" path="res://assets/alert_sound.mp3" id="3_rktp4"]
 [ext_resource type="Texture2D" uid="uid://mlf8j2ongoa4" path="res://assets/alert_icon.png" id="4_f6dk8"]
-[ext_resource type="Texture2D" uid="uid://c44nmfbgfsyql" path="res://assets/pixil-frame-0 (2).png" id="5_f6dk8"]
+[ext_resource type="Texture2D" uid="uid://c44nmfbgfsyql" path="res://assets/progress_bar.png" id="5_f6dk8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avdpf"]
 size = Vector2(63, 49)
@@ -40,6 +40,7 @@ clip_contents = true
 offset_left = -32.0
 offset_right = 32.0
 offset_bottom = 10.0
+value = 100.0
 texture_progress = ExtResource("5_f6dk8")
 
 [node name="startProgress" type="Timer" parent="."]
