@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dya5yexrfsr0y"]
+
+[ext_resource type="Script" uid="uid://c5grsadd1anx3" path="res://scripts/glue_puddle.gd" id="1_vu4xt"]
+[ext_resource type="Texture2D" uid="uid://cdrha6nt71n5d" path="res://assets/puddle_01.png" id="2_iexxe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mubqf"]
+radius = 69.46222
+
+[node name="GluePuddle01" type="Area2D"]
+z_index = -5
+collision_layer = 4
+script = ExtResource("1_vu4xt")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.41599998, 0.416)
+texture = ExtResource("2_iexxe")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mubqf")
+
+[node name="TimeToDry" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="TimeToDry" to="." method="_on_time_to_dry_timeout"]

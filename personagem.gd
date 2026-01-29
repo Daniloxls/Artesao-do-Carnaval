@@ -63,9 +63,11 @@ func update_animation(direction: Vector2):
 	elif direction.x < 0:
 		player_sprite.play("walk_left")
 		
-		
 func update_interaction_direction(dir: Vector2):
 	if dir.y > 0: interact_colision.change_direction("down")
 	elif dir.y < 0: interact_colision.change_direction("up")
 	elif dir.x > 0: interact_colision.change_direction("right")
 	elif dir.x < 0: interact_colision.change_direction("left")
+
+func setSpeed(value: int):
+	speed = value
