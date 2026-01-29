@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dkpmcw5ecd737"]
+[gd_scene load_steps=12 format=3 uid="uid://dkpmcw5ecd737"]
 
 [ext_resource type="PackedScene" uid="uid://dkumrj8ur82ln" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dley0u1lg3le7" path="res://scenes/tables/table.tscn" id="2_yqjtg"]
@@ -16,38 +16,39 @@
 [ext_resource type="PackedScene" uid="uid://nt5t0hxhfrsc" path="res://scenes/props/mouth.tscn" id="10_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://cmrvl65n3br4r" path="res://assets/fb2080.png" id="10_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://bqg85yjxefsjy" path="res://scenes/tables/multi_color_source.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://m0dtkrisgc7i" path="res://scenes/tables/glue_pot.tscn" id="11_kvpfn"]
 
-[node name="Node2D" type="Node2D" unique_id=1975075956]
+[node name="Node2D" type="Node2D"]
 y_sort_enabled = true
 
-[node name="Player" parent="." unique_id=849893935 instance=ExtResource("1_uwrxv")]
-position = Vector2(351, 258)
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(320, 374)
 
-[node name="Table" parent="." unique_id=936571725 instance=ExtResource("2_yqjtg")]
+[node name="Table" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(555, 189)
 
-[node name="Table2" parent="." unique_id=1601652045 instance=ExtResource("2_yqjtg")]
+[node name="Table2" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(660, 191)
 
-[node name="Table3" parent="." unique_id=2104752395 instance=ExtResource("2_yqjtg")]
+[node name="Table3" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(441, 187)
 
-[node name="Table4" parent="." unique_id=2077353023 instance=ExtResource("2_yqjtg")]
+[node name="Table4" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(780, 191)
 
-[node name="PaintingStation" parent="." unique_id=1434965482 instance=ExtResource("3_p57ef")]
+[node name="PaintingStation" parent="." instance=ExtResource("3_p57ef")]
 position = Vector2(1081, 314)
 
-[node name="PaintingStation2" parent="." unique_id=1309093641 instance=ExtResource("3_p57ef")]
+[node name="PaintingStation2" parent="." instance=ExtResource("3_p57ef")]
 position = Vector2(1085, 438)
 paint_color = Color(0, 0.30588236, 0.89411765, 1)
 color_name = "Azul"
 
-[node name="Source" parent="." unique_id=1256609756 instance=ExtResource("4_u5sy4")]
+[node name="Source" parent="." instance=ExtResource("4_u5sy4")]
 position = Vector2(89, 193)
 item_scene = ExtResource("5_u5sy4")
 
-[node name="CuttingStation" parent="." unique_id=560214371 instance=ExtResource("5_gee14")]
+[node name="CuttingStation" parent="." instance=ExtResource("5_gee14")]
 position = Vector2(430, 517)
 arrow_texture = ExtResource("7_ca42v")
 texture_up = ExtResource("7_ir15t")
@@ -56,17 +57,19 @@ texture_left = ExtResource("9_rysoc")
 texture_right = ExtResource("10_ssvqc")
 output_scene = ExtResource("4_p57ef")
 
-[node name="Trash" parent="." unique_id=103494665 instance=ExtResource("6_0tnpc")]
+[node name="Trash" parent="." instance=ExtResource("6_0tnpc")]
 position = Vector2(108, 516)
 
-[node name="Source2" parent="." unique_id=1259377505 instance=ExtResource("4_u5sy4")]
+[node name="Source2" parent="." instance=ExtResource("4_u5sy4")]
 position = Vector2(95, 357)
 item_scene = ExtResource("9_vtaks")
 
-[node name="Source3" parent="." unique_id=221281794 instance=ExtResource("4_u5sy4")]
+[node name="Source3" parent="." instance=ExtResource("4_u5sy4")]
 position = Vector2(227, 171)
 item_scene = ExtResource("10_kvpfn")
 
 [node name="MultiColorSource" parent="." unique_id=1754918619 instance=ExtResource("11_kvpfn")]
 position = Vector2(624, 389)
 item_scene = ExtResource("5_u5sy4")
+[node name="GluePot" parent="." instance=ExtResource("11_kvpfn")]
+position = Vector2(338, 183)
