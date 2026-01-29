@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dlvkwpya26fv2"]
+[gd_scene load_steps=6 format=3 uid="uid://dlvkwpya26fv2"]
 
 [ext_resource type="Script" uid="uid://pxw51ji32upa" path="res://scripts/source.gd" id="1_rvopd"]
 [ext_resource type="Texture2D" uid="uid://bsw6yqsms1pbp" path="res://assets/Basic_Furniture.png" id="2_4rxs6"]
@@ -21,20 +21,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
 size = Vector2(84, 85)
 
-[node name="Source" type="StaticBody2D" unique_id=936571725]
-collision_layer = 3
-collision_mask = 3
+[node name="Source" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_rvopd")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2061457135]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.29803923, 0.92156863, 0, 1)
 position = Vector2(2, -1)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_u03e6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658189886]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 11.5)
 shape = SubResource("RectangleShape2D_eotx8")
 
-[node name="ItemPoint" type="Marker2D" parent="." unique_id=1823882331]
+[node name="ItemPoint" type="Marker2D" parent="."]
 position = Vector2(1, -24)
