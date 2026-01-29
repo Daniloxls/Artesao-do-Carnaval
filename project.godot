@@ -16,8 +16,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Jogo Jam"
 run/main_scene="uid://dkpmcw5ecd737"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+DialogManager="*res://scripts/dialog_manager.gd"
 
 [input]
 

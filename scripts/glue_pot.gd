@@ -6,7 +6,14 @@ extends StaticBody2D
 @onready var progressBar = $ProgressBar as TextureProgressBar
 @onready var startProgress = $startProgress as Timer
 
-@export var timeToExplode = 5
+@export var timeToExplode = 30
+
+var lines : Array[String] = [
+	"Jà passei cola neste!",
+	"Cola demais estraga!",
+	"Hora de por os apetrechos!",
+	"Aqui já tá bom de cola!"
+]
 
 var puddles = [
 	preload("res://scenes/tables/puddles/glue_puddle_01.tscn"),
@@ -50,7 +57,10 @@ func interact(player: CharacterBody2D):
 			activePlayer.is_locked = true
 			isStirring = true
 	elif(activePlayer.held_item is MaskItem):
-		(activePlayer.held_item as MaskItem).with_glue = true
+		if((activePlayer.held_item as MaskItem).with_glue == false):
+			(activePlayer.held_item as MaskItem).with_glue = true
+		else:
+			DialogManager.start_message($DialogSpawner.global_position, lines.pick_random())
 
 func _on_spawn_timer_timeout() -> void:
 	var choiced = puddles.pick_random()

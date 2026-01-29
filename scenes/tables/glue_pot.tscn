@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://m0dtkrisgc7i"]
+[gd_scene load_steps=7 format=3 uid="uid://m0dtkrisgc7i"]
 
 [ext_resource type="Script" uid="uid://b4vkt35tgtryh" path="res://scripts/glue_pot.gd" id="1_avdpf"]
 [ext_resource type="Texture2D" uid="uid://b1qlv1430rp50" path="res://assets/glue_pot.png" id="1_m34ja"]
@@ -40,11 +40,13 @@ clip_contents = true
 offset_left = -32.0
 offset_right = 32.0
 offset_bottom = 10.0
-value = 100.0
 texture_progress = ExtResource("5_f6dk8")
 
 [node name="startProgress" type="Timer" parent="."]
 one_shot = true
+
+[node name="DialogSpawner" type="Marker2D" parent="."]
+position = Vector2(0, -50)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="startProgress" to="." method="_on_start_progress_timeout"]
