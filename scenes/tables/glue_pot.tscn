@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://m0dtkrisgc7i"]
+[gd_scene format=3 uid="uid://m0dtkrisgc7i"]
 
 [ext_resource type="Script" uid="uid://b4vkt35tgtryh" path="res://scripts/glue_pot.gd" id="1_avdpf"]
 [ext_resource type="Texture2D" uid="uid://b1qlv1430rp50" path="res://assets/glue_pot.png" id="1_m34ja"]

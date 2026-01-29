@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cre0xkrvjtdba"]
+[gd_scene format=3 uid="uid://cre0xkrvjtdba"]
 
 [ext_resource type="Script" uid="uid://de1pa0cs4msix" path="res://scripts/cutting_station.gd" id="1_8i5mt"]
 [ext_resource type="Texture2D" uid="uid://bsw6yqsms1pbp" path="res://assets/Basic_Furniture.png" id="2_hr20i"]
@@ -23,20 +23,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
 size = Vector2(84, 85)
 
-[node name="CuttingStation" type="StaticBody2D"]
+[node name="CuttingStation" type="StaticBody2D" unique_id=1574606114]
 collision_layer = 2
 script = ExtResource("1_8i5mt")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=812304036]
 modulate = Color(0.48953235, 0.14960733, 0.063112445, 1)
 position = Vector2(2, -1)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_u03e6")
 
-[node name="ItemPoint" type="Marker2D" parent="."]
+[node name="ItemPoint" type="Marker2D" parent="." unique_id=1512147023]
 position = Vector2(1, -24)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=687346212]
 position = Vector2(2, 11.5)
 shape = SubResource("RectangleShape2D_eotx8")
 
@@ -65,6 +65,7 @@ position = Vector2(0, -100)
 texture = ExtResource("9_k6m2p")
 
 [node name="SequenceUI" type="Node2D" parent="." unique_id=1444741089]
+visible = false
 position = Vector2(70, -100)
 
 [node name="Arrow1" type="Sprite2D" parent="SequenceUI" unique_id=669847035]
