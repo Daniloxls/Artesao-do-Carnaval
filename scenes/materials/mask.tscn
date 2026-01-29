@@ -9,7 +9,7 @@ mask_sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://c5r85rx8ro0i3"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1967956267]
-scale = Vector2(0.28, 0.28)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_rv8xw")
 
 [node name="Slot1" type="Marker2D" parent="." unique_id=1544495527]

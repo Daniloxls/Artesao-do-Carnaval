@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://de1pa0cs4msix" path="res://scripts/cutting_station.gd" id="1_8i5mt"]
 [ext_resource type="Texture2D" uid="uid://bsw6yqsms1pbp" path="res://assets/Basic_Furniture.png" id="2_hr20i"]
+[ext_resource type="Texture2D" uid="uid://bcnjg6q8n6mv2" path="res://assets/keyboard_arrow_down.png" id="4_qj3ui"]
+[ext_resource type="Texture2D" uid="uid://dwjvid1slblvb" path="res://assets/xbox_dpad.png" id="9_k6m2p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_olh0b"]
 atlas = ExtResource("2_hr20i")
@@ -39,8 +41,44 @@ position = Vector2(1, -24)
 position = Vector2(2, 11.5)
 shape = SubResource("RectangleShape2D_eotx8")
 
-[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=950455708]
-offset_left = -42.0
-offset_top = -118.0
-offset_right = 42.0
-offset_bottom = -93.0
+[node name="SelectorUI" type="Node2D" parent="." unique_id=2113081360]
+visible = false
+z_index = 1
+
+[node name="IconUp" type="Sprite2D" parent="SelectorUI" unique_id=1533439956]
+position = Vector2(0, -160.00002)
+scale = Vector2(1.5, 1.5)
+
+[node name="IconDown" type="Sprite2D" parent="SelectorUI" unique_id=2136450311]
+position = Vector2(0, -40.000034)
+scale = Vector2(1.5, 1.5)
+
+[node name="IconLeft" type="Sprite2D" parent="SelectorUI" unique_id=481749323]
+position = Vector2(-60.999996, -100.00004)
+scale = Vector2(1.5, 1.5)
+
+[node name="IconRight" type="Sprite2D" parent="SelectorUI" unique_id=305646916]
+position = Vector2(60.999996, -100.00004)
+scale = Vector2(1.5, 1.5)
+
+[node name="Cross" type="Sprite2D" parent="SelectorUI" unique_id=1127622857]
+position = Vector2(0, -100)
+texture = ExtResource("9_k6m2p")
+
+[node name="SequenceUI" type="Node2D" parent="." unique_id=1444741089]
+position = Vector2(70, -100)
+
+[node name="Arrow1" type="Sprite2D" parent="SequenceUI" unique_id=669847035]
+texture = ExtResource("4_qj3ui")
+
+[node name="Arrow2" type="Sprite2D" parent="SequenceUI" unique_id=835331537]
+position = Vector2(53, 0)
+texture = ExtResource("4_qj3ui")
+
+[node name="Arrow3" type="Sprite2D" parent="SequenceUI" unique_id=313793079]
+position = Vector2(106, 0)
+texture = ExtResource("4_qj3ui")
+
+[node name="Arrow4" type="Sprite2D" parent="SequenceUI" unique_id=728482120]
+position = Vector2(158, 0)
+texture = ExtResource("4_qj3ui")

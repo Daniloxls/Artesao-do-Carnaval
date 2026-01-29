@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bqg85yjxefsjy"]
+
+[ext_resource type="Script" uid="uid://dnm8hth6emsnw" path="res://scripts/multi_color_source.gd" id="1_xl6nt"]
+[ext_resource type="Texture2D" uid="uid://bsw6yqsms1pbp" path="res://assets/Basic_Furniture.png" id="2_rt4al"]
+[ext_resource type="Texture2D" uid="uid://chru83w3ii8vp" path="res://icon.svg" id="2_xl6nt"]
+[ext_resource type="Texture2D" uid="uid://dwjvid1slblvb" path="res://assets/xbox_dpad.png" id="3_ekync"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olh0b"]
+atlas = ExtResource("2_rt4al")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u03e6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olh0b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
+size = Vector2(84, 85)
+
+[node name="MultiColorSource" type="StaticBody2D" unique_id=936571725]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_xl6nt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2061457135]
+modulate = Color(0.9529412, 0.6392157, 0.12941177, 1)
+position = Vector2(2, -1)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_u03e6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658189886]
+position = Vector2(2, 11.5)
+shape = SubResource("RectangleShape2D_eotx8")
+
+[node name="ItemPoint" type="Marker2D" parent="." unique_id=1823882331]
+position = Vector2(1, -24)
+
+[node name="SelectorUI" type="Node2D" parent="." unique_id=1970424136]
+visible = false
+
+[node name="IconUp" type="Sprite2D" parent="SelectorUI" unique_id=1581743894]
+position = Vector2(0, -160.00002)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xl6nt")
+
+[node name="IconDown" type="Sprite2D" parent="SelectorUI" unique_id=655851637]
+position = Vector2(0, -40.000034)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xl6nt")
+
+[node name="IconLeft" type="Sprite2D" parent="SelectorUI" unique_id=357276535]
+position = Vector2(-60.999996, -100.00004)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xl6nt")
+
+[node name="IconRight" type="Sprite2D" parent="SelectorUI" unique_id=321334279]
+position = Vector2(60.999996, -100.00004)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xl6nt")
+
+[node name="Cross" type="Sprite2D" parent="SelectorUI" unique_id=1729999087]
+position = Vector2(0, -100)
+texture = ExtResource("3_ekync")

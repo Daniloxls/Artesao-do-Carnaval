@@ -9,8 +9,8 @@ var current_props: Array[String] = []
 @onready var slot1: Marker2D = $Slot1
 @onready var slot2: Marker2D = $Slot2
 
-var is_painted: bool = false
 
+var current_color : Color = Color.WHITE
 var current_color_name : String = "natural"
 
 func can_add_prop(prop: PropItem) -> bool:
@@ -23,19 +23,16 @@ func can_add_prop(prop: PropItem) -> bool:
 
 func add_prop(prop: PropItem):
 	current_props.append(prop.prop_type)
-	
 	prop.reparent(self)
-	
 	prop.position = slot1.position
 	
 	
-
-func apply_paint(new_color: Color, color_name: String):
-	if is_painted:
-		return
-		
-	is_painted = true
-	current_color_name = color_name
-	
+func setup_mask(base_color: Color, new_texture: Texture2D):
+	current_color = base_color
+	item_color = base_color
 	if mask_sprite:
-		mask_sprite.modulate = new_color
+		mask_sprite.modulate = base_color
+		if new_texture:
+			mask_sprite.texture = new_texture
+	else:
+		modulate = base_color
