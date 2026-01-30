@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://j62k40pn45je"]
+
+[ext_resource type="Script" uid="uid://ttdl8i0rjytp" path="res://menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://dxir22tinr7qf" path="res://assets/logo.png" id="2_con2f"]
+
+[node name="Control" type="Control" unique_id=81282692]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=599226244]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.31, 0.31, 0.31, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1393870883]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45400003
+anchor_right = 0.5
+anchor_bottom = 0.45400003
+offset_left = -20.0
+offset_top = -109.19202
+offset_right = 20.0
+offset_bottom = -86.19202
+grow_horizontal = 2
+grow_vertical = 2
+text = "CORRE-COLA!"
+
+[node name="Logo" type="Sprite2D" parent="Label" unique_id=640378291]
+position = Vector2(57, -9)
+scale = Vector2(0.36403778, 0.34873712)
+texture = ExtResource("2_con2f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1230975728]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = 39.5
+offset_right = 104.0
+offset_bottom = 222.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=685833591]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "INICIAR"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=83040269]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "SAIR"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
