@@ -1,51 +1,51 @@
-[gd_scene load_steps=7 format=3 uid="uid://m0dtkrisgc7i"]
+[gd_scene format=3 uid="uid://m0dtkrisgc7i"]
 
 [ext_resource type="Script" uid="uid://b4vkt35tgtryh" path="res://scripts/glue_pot.gd" id="1_avdpf"]
 [ext_resource type="Texture2D" uid="uid://b1qlv1430rp50" path="res://assets/glue_pot.png" id="1_m34ja"]
-[ext_resource type="AudioStream" uid="uid://c7qwl1al1w8h4" path="res://assets/alert_sound.mp3" id="3_rktp4"]
+[ext_resource type="AudioStream" uid="uid://h5s2pburgius" path="res://assets/fire_sound.mp3" id="3_f6dk8"]
 [ext_resource type="Texture2D" uid="uid://mlf8j2ongoa4" path="res://assets/alert_icon.png" id="4_f6dk8"]
 [ext_resource type="Texture2D" uid="uid://c44nmfbgfsyql" path="res://assets/progress_bar.png" id="5_f6dk8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avdpf"]
 size = Vector2(63, 49)
 
-[node name="GluePot" type="StaticBody2D"]
+[node name="GluePot" type="StaticBody2D" unique_id=1967799158]
 collision_layer = 2
 script = ExtResource("1_avdpf")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=288473507]
 position = Vector2(0, 1.953125e-06)
 scale = Vector2(0.16, 0.16000001)
 texture = ExtResource("1_m34ja")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1552711748]
 position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_avdpf")
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1950316941]
 
-[node name="AlertSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_rktp4")
+[node name="AlertSound" type="AudioStreamPlayer" parent="." unique_id=50139861]
+stream = ExtResource("3_f6dk8")
 
-[node name="AlertIcon" type="Sprite2D" parent="."]
+[node name="AlertIcon" type="Sprite2D" parent="." unique_id=1062901806]
 visible = false
 position = Vector2(0, -49)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("4_f6dk8")
 
-[node name="SpawnPoints" type="Node" parent="."]
+[node name="SpawnPoints" type="Node" parent="." unique_id=1671054644]
 
-[node name="ProgressBar" type="TextureProgressBar" parent="."]
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=1844034932]
 clip_contents = true
 offset_left = -32.0
 offset_right = 32.0
 offset_bottom = 10.0
 texture_progress = ExtResource("5_f6dk8")
 
-[node name="startProgress" type="Timer" parent="."]
+[node name="startProgress" type="Timer" parent="." unique_id=1349946884]
 one_shot = true
 
-[node name="DialogSpawner" type="Marker2D" parent="."]
+[node name="DialogSpawner" type="Marker2D" parent="." unique_id=2042785367]
 position = Vector2(0, -50)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

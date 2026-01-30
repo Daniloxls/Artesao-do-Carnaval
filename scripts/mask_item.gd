@@ -15,7 +15,7 @@ var current_color : Color = Color.WHITE
 var current_color_name : String = "natural"
 
 func can_add_prop(prop: PropItem) -> bool:
-	if current_props.size() >= max_props:
+	if current_props.size() >= max_props and with_glue:
 		return false
 	if current_props.size() == 1:
 		if current_props[0] == prop.prop_type:

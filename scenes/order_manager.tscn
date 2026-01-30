@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b2qd3ewlr8ny7"]
+
+[ext_resource type="Script" uid="uid://cb65vcjt78l14" path="res://scripts/order_manager.gd" id="1_v500a"]
+[ext_resource type="PackedScene" uid="uid://bg87uj43ea8al" path="res://scenes/client.tscn" id="2_hrvr2"]
+[ext_resource type="Texture2D" uid="uid://owg0ldj1m2mk" path="res://assets/mascara_1.png" id="3_ghy7m"]
+
+[node name="OrderManager" type="Node2D" unique_id=1409493441 node_paths=PackedStringArray("windows")]
+script = ExtResource("1_v500a")
+client_scene = ExtResource("2_hrvr2")
+windows = [null, null, null, null]
+available_models = Array[Texture2D]([ExtResource("3_ghy7m")])
+available_props = Array[String](["Chifre", "Pena", "Glitter"])
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=384928478]
+wait_time = 10.0
+autostart = true

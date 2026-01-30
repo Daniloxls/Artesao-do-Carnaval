@@ -1,27 +1,11 @@
 [gd_scene format=3 uid="uid://gqaj3w4q03er"]
 
 [ext_resource type="Script" uid="uid://v2veqtgplieh" path="res://scripts/item.gd" id="1_04brx"]
-[ext_resource type="Texture2D" uid="uid://chru83w3ii8vp" path="res://icon.svg" id="2_ixs2t"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s8enn"]
-atlas = ExtResource("2_ixs2t")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_j83wv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s8enn")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://djihj5iurisfr" path="res://assets/eva.png" id="2_sx53u"]
 
 [node name="Papelao" type="Node2D" unique_id=51748142]
 script = ExtResource("1_04brx")
 item_name = "Papelão"
 
-[node name="MaskSprite" type="AnimatedSprite2D" parent="." unique_id=1063453877]
-scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_j83wv")
+[node name="MaskSprite" type="Sprite2D" parent="." unique_id=36357757]
+texture = ExtResource("2_sx53u")

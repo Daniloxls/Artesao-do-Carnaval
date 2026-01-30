@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://o6jrkjnqghqm"]
+
+[ext_resource type="Script" uid="uid://pa5dmulpoeat" path="res://scripts/prop_item.gd" id="1_iw5mc"]
+[ext_resource type="Texture2D" uid="uid://i3fbrq34atx8" path="res://assets/glitter_icon.png" id="2_iw5mc"]
+[ext_resource type="Texture2D" uid="uid://cfpetv80ofmf0" path="res://assets/glitter_aplicado.png" id="3_v80jd"]
+
+[node name="Glitter" type="Node2D" unique_id=1966069781]
+script = ExtResource("1_iw5mc")
+prop_type = "Glitter"
+item_name = "Glitter"
+
+[node name="SpriteIcon" type="Sprite2D" parent="." unique_id=1590924342]
+texture = ExtResource("2_iw5mc")
+
+[node name="SpriteApplied" type="Sprite2D" parent="." unique_id=862869791]
+visible = false
+texture = ExtResource("3_v80jd")

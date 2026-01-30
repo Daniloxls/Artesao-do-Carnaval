@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bj1ks1cysc2ob"]
+
+[ext_resource type="Script" uid="uid://dl0du76kwea3p" path="res://delivery_window.gd" id="1_taj6q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_taj6q"]
+size = Vector2(59, 102)
+
+[node name="DeliveryWindow" type="StaticBody2D" unique_id=665520887]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_taj6q")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=853299857]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1955155371]
+position = Vector2(0, 41)
+shape = SubResource("RectangleShape2D_taj6q")

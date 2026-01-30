@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dkumrj8ur82ln"]
+[gd_scene format=3 uid="uid://dkumrj8ur82ln"]
 
 [ext_resource type="Script" uid="uid://c56iru1tyepsm" path="res://personagem.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://b2jcs1lcsh0rw" path="res://assets/Small-8-Direction-Characters_by_AxulArt.png" id="2_qlg0r"]
@@ -252,45 +252,45 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p57ef"]
-size = Vector2(64, 23.75)
+size = Vector2(40, 23.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
-size = Vector2(64, 64)
+size = Vector2(37, 35)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=243488072]
 collision_mask = 2
 script = ExtResource("1_qhqgy")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=2067656423]
 position = Vector2(0, -9)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_iywne")
 frame_progress = 0.75222784
 
-[node name="PlayerColision" type="CollisionShape2D" parent="."]
+[node name="PlayerColision" type="CollisionShape2D" parent="." unique_id=1540739717]
 position = Vector2(0, 19.875)
 shape = SubResource("RectangleShape2D_p57ef")
 
-[node name="InteractColision" type="Area2D" parent="."]
+[node name="InteractColision" type="Area2D" parent="." unique_id=1586788773]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_qlg0r")
 
-[node name="ColisionUp" type="CollisionShape2D" parent="InteractColision"]
-position = Vector2(0, -64)
+[node name="ColisionUp" type="CollisionShape2D" parent="InteractColision" unique_id=1886536666]
+position = Vector2(-2, -20)
 shape = SubResource("RectangleShape2D_lbhrr")
 
-[node name="ColisionRight" type="CollisionShape2D" parent="InteractColision"]
-position = Vector2(64, 0)
+[node name="ColisionRight" type="CollisionShape2D" parent="InteractColision" unique_id=1660473167]
+position = Vector2(41, 16)
 shape = SubResource("RectangleShape2D_lbhrr")
 
-[node name="ColisionDown" type="CollisionShape2D" parent="InteractColision"]
-position = Vector2(0, 64)
+[node name="ColisionDown" type="CollisionShape2D" parent="InteractColision" unique_id=1142443797]
+position = Vector2(0, 51)
 shape = SubResource("RectangleShape2D_lbhrr")
 
-[node name="ColisionLeft" type="CollisionShape2D" parent="InteractColision"]
-position = Vector2(-64, 0)
+[node name="ColisionLeft" type="CollisionShape2D" parent="InteractColision" unique_id=2000633811]
+position = Vector2(-44.5, 16.5)
 shape = SubResource("RectangleShape2D_lbhrr")
 
-[node name="HandMarker" type="Marker2D" parent="."]
+[node name="HandMarker" type="Marker2D" parent="." unique_id=73810107]
 position = Vector2(0, -47)

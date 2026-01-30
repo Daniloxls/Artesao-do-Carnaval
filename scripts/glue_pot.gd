@@ -7,7 +7,7 @@ extends StaticBody2D
 @onready var startProgress = $startProgress as Timer
 
 @export var timeToExplode = 30
-
+@export var splash_sound : AudioStream
 var lines : Array[String] = [
 	"Jà passei cola neste!",
 	"Cola demais estraga!",
@@ -26,49 +26,91 @@ var isCold = false
 var activePlayer: CharacterBody2D = null
 
 func _process(delta: float) -> void:
-	if isStirring:
-		spawnTimer.stop()
+	
+	var interact_action = "ui_accept"
+	if activePlayer != null:
+		interact_action = "p" + str(activePlayer.player_id) + "_interact"
+	
+	if activePlayer != null and Input.is_action_pressed(interact_action) and activePlayer.held_item == null:
+		if not isCold and progress > 0:
+			perform_stir(delta)
+		else:
+			release_player()
+			
+
+	elif activePlayer != null:
+		release_player()
+
+
+	if not isStirring and not isCold:
+		increase_pressure(delta)
+		
+	progressBar.value = progress
+
+
+func perform_stir(delta: float):
+	isStirring = true
+	activePlayer.is_locked = true
+	activePlayer.velocity = Vector2.ZERO
+	
+
+	spawnTimer.stop()
+	if isPlayingAlert:
 		alert_sfx.playing = false
 		alert_icon.visible = false
 		isPlayingAlert = false
-		if progress > 0:
-			progress -= (100.0 / timeToExplode) * delta * 2
-		else:
-			activePlayer.is_locked = false
-			isStirring = false
-			isCold = true
-			activePlayer = null
-			startProgress.start()
-	elif not isCold:
-		if progress < 100:
-			progress += (100.0 / timeToExplode) * delta
-		else:
-			if not isPlayingAlert:
-				alert_sfx.playing = true
-				alert_icon.visible = true
-				spawnTimer.start()
-				isPlayingAlert = true
-	progressBar.value = progress
+	
+
+	progress -= (100.0 / timeToExplode) * delta * 2
+	
+
+	if progress <= 0:
+		progress = 0
+		isCold = true
+		startProgress.start()
+		release_player()
+
+
+func release_player():
+	isStirring = false
+	if activePlayer:
+		activePlayer.is_locked = false
+		activePlayer = null
+
+
+func increase_pressure(delta: float):
+	if progress < 100:
+		progress += (100.0 / timeToExplode) * delta
+	else:
+		if not isPlayingAlert:
+			alert_sfx.playing = true
+			alert_icon.visible = true
+			spawnTimer.start()
+			isPlayingAlert = true
 
 func interact(player: CharacterBody2D):
 	activePlayer = player
-	if (activePlayer.held_item == null):
-		if(progress > 0):
-			activePlayer.is_locked = true
-			isStirring = true
-	elif(activePlayer.held_item is MaskItem):
-		if((activePlayer.held_item as MaskItem).with_glue == false):
-			(activePlayer.held_item as MaskItem).with_glue = true
+	
+	if activePlayer.held_item is MaskItem:
+		var mask = activePlayer.held_item as MaskItem
+		if not mask.with_glue:
+			mask.with_glue = true
+			
+			# Opcional: Tocar som de "splash"
+			activePlayer = null 
 		else:
 			DialogManager.start_message($DialogSpawner.global_position, lines.pick_random())
+			activePlayer = null
 
 func _on_spawn_timer_timeout() -> void:
 	var choiced = puddles.pick_random()
 	var newPuddle = choiced.instantiate()
-	var rand_x = randf_range(0.0, 1150.0)
-	var rand_y = randf_range(0.0, 640.0)
+	var rand_x = randf_range(-520.0, 520.0)
+	var rand_y = randf_range(-123.0, 265.0)
 	newPuddle.position = Vector2(rand_x, rand_y)
+	newPuddle.z_index = -1
 	get_parent().add_child(newPuddle)
+	AudioManager.play_sfx(splash_sound)
 
 func _on_start_progress_timeout() -> void:
 	isCold = false

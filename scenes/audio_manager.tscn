@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cb4yslu2wofsi"]
+
+[ext_resource type="Script" uid="uid://vsj4bht4yc4a" path="res://scripts/audio_manager.gd" id="1_liach"]
+[ext_resource type="AudioStream" uid="uid://dvtcapis32mwu" path="res://assets/brazilsamba.mp3" id="2_3asnw"]
+
+[node name="AudioManager" type="Node2D" unique_id=1469150986]
+script = ExtResource("1_liach")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1422614692]
+stream = ExtResource("2_3asnw")
+volume_db = -16.421
+autoplay = true
+bus = &"Music"
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1681073863]

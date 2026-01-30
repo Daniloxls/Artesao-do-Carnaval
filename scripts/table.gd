@@ -33,6 +33,8 @@ func try_combine_items(player, table_item, hand_item):
 		if mask.can_add_prop(prop):
 			player.drop_item()
 			mask.add_prop(prop)
+			prop.sprite_icon.hide()
+			prop.sprite_applied.show()
 			
 	elif table_item is PropItem and hand_item is MaskItem:
 		var prop = table_item
@@ -40,6 +42,8 @@ func try_combine_items(player, table_item, hand_item):
 		
 		if mask.can_add_prop(prop):
 			held_item = null
+			prop.sprite_icon.hide()
+			prop.sprite_applied.show()
 			mask.add_prop(prop)
 			recieve_item(mask)
 			player.drop_item()

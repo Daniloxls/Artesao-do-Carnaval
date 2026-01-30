@@ -23,7 +23,7 @@ class_name CuttingStation
 @export var texture_down: Texture2D
 @export var texture_left: Texture2D
 @export var texture_right: Texture2D
-
+@export var sfx_cut_success: AudioStream
 
 @export var input_item_name : String = "Papelão"
 @export var output_scene: PackedScene
@@ -105,12 +105,18 @@ func start_selection(player):
 	tween.tween_interval(0.2)
 	#tween.tween_callback(set_selecting.bind(true))
 
-
 func handle_selection_input():
-	if Input.is_action_just_pressed("up"): confirm_selection(texture_up, "up")
-	elif Input.is_action_just_pressed("down"): confirm_selection(texture_down, "down")
-	elif Input.is_action_just_pressed("left"): confirm_selection(texture_left, "left")
-	elif Input.is_action_just_pressed("right"): confirm_selection(texture_right, "right")
+	var prefix = "p" + str(active_player.player_id) + "_"
+	
+	if Input.is_action_just_pressed(prefix + "up"): 
+		confirm_selection(texture_up, "up")
+	elif Input.is_action_just_pressed(prefix + "down"): 
+		confirm_selection(texture_down, "down")
+	elif Input.is_action_just_pressed(prefix + "left"): 
+		confirm_selection(texture_left, "left")
+	elif Input.is_action_just_pressed(prefix + "right"): 
+		confirm_selection(texture_right, "right")
+
 
 func confirm_selection(texture: Texture2D, direction_key: String):
 	if texture == null: return
@@ -135,11 +141,14 @@ func start_cutting_sequence(type_key: String):
 
 
 func handle_cutting_input():
-	if Input.is_action_just_pressed("up"):    check_input("up")
-	elif Input.is_action_just_pressed("down"):  check_input("down")
-	elif Input.is_action_just_pressed("left"):  check_input("left")
-	elif Input.is_action_just_pressed("right"): check_input("right")
-	elif Input.is_action_just_pressed("interact"): cancel_all()
+	var prefix = "p" + str(active_player.player_id) + "_"
+	
+	if Input.is_action_just_pressed(prefix + "up"):    check_input("up")
+	elif Input.is_action_just_pressed(prefix + "down"):  check_input("down")
+	elif Input.is_action_just_pressed(prefix + "left"):  check_input("left")
+	elif Input.is_action_just_pressed(prefix + "right"): check_input("right")
+	
+	elif Input.is_action_just_pressed(prefix + "interact"): cancel_all()
 	
 
 func check_input(key_pressed: String):
@@ -148,8 +157,7 @@ func check_input(key_pressed: String):
 	if key_pressed == expected_key:
 		sequence_step += 1
 		highlight_arrow(sequence_step - 1, true)
-		
-		#Adicionar feedback sonoro, som de tesoura
+		AudioManager.play_sfx(sfx_cut_success)
 		
 		if sequence_step >= current_sequence.size():
 			finish_cutting()

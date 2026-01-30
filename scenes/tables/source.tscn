@@ -1,39 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlvkwpya26fv2"]
+[gd_scene format=3 uid="uid://dlvkwpya26fv2"]
 
 [ext_resource type="Script" uid="uid://pxw51ji32upa" path="res://scripts/source.gd" id="1_rvopd"]
-[ext_resource type="Texture2D" uid="uid://bsw6yqsms1pbp" path="res://assets/Basic_Furniture.png" id="2_4rxs6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_olh0b"]
-atlas = ExtResource("2_4rxs6")
-region = Rect2(48, 48, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_u03e6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_olh0b")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="AudioStream" uid="uid://bhycp2oucyyaf" path="res://assets/pick_up.mp3" id="2_h334t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
-size = Vector2(84, 85)
+size = Vector2(38, 33)
 
-[node name="Source" type="StaticBody2D"]
+[node name="Source" type="StaticBody2D" unique_id=1734501394]
 collision_layer = 2
 script = ExtResource("1_rvopd")
+pick_up_sound = ExtResource("2_h334t")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=264584833]
+visible = false
 modulate = Color(0.29803923, 0.92156863, 0, 1)
 position = Vector2(2, -1)
 scale = Vector2(6, 6)
-sprite_frames = SubResource("SpriteFrames_u03e6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 11.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1880591129]
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_eotx8")
 
-[node name="ItemPoint" type="Marker2D" parent="."]
+[node name="ItemPoint" type="Marker2D" parent="." unique_id=886939284]
 position = Vector2(1, -24)

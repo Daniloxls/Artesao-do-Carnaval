@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cu77k54uevbcc"]
+
+[ext_resource type="Script" uid="uid://ieaolkvt2a78" path="res://scripts/hud.gd" id="1_qpvh6"]
+
+[node name="Hud" type="CanvasLayer" unique_id=423720799]
+script = ExtResource("1_qpvh6")
+
+[node name="LabelTime" type="Label" parent="." unique_id=133186720]
+offset_left = 1016.0
+offset_top = 30.0
+offset_right = 1122.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 32
+text = "00:00"
+
+[node name="LabelScore" type="Label" parent="." unique_id=477816191]
+offset_left = 28.0
+offset_top = 14.0
+offset_right = 134.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 32
+text = "Pontos: 0"

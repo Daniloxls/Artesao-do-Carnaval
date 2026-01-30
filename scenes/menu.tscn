@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ttdl8i0rjytp" path="res://menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://dxir22tinr7qf" path="res://assets/logo.png" id="2_con2f"]
+[ext_resource type="Texture2D" uid="uid://c7x87vkuk0ymo" path="res://assets/Captura de tela 2026-01-30 074543.png" id="2_mhnvy"]
 
 [node name="Control" type="Control" unique_id=81282692]
 layout_mode = 3
@@ -12,7 +13,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vjb58")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1948066745]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -12.0
+offset_right = 1183.0
+offset_bottom = 653.0
+texture = ExtResource("2_mhnvy")
+stretch_mode = 4
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=599226244]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

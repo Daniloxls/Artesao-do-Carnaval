@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bg87uj43ea8al"]
+
+[ext_resource type="Script" uid="uid://cti3o6sqhd5to" path="res://scripts/client.gd" id="1_5f806"]
+[ext_resource type="Texture2D" uid="uid://b2jcs1lcsh0rw" path="res://assets/Small-8-Direction-Characters_by_AxulArt.png" id="2_4tr0r"]
+[ext_resource type="AudioStream" uid="uid://daserq0jkr0gm" path="res://assets/happy_hum.mp3" id="2_da3od"]
+[ext_resource type="Texture2D" uid="uid://c44nmfbgfsyql" path="res://assets/progress_bar.png" id="2_r26j7"]
+[ext_resource type="AudioStream" uid="uid://ms4p5h845fim" path="res://assets/angry_sound.mp3" id="3_dipmf"]
+[ext_resource type="Texture2D" uid="uid://dugsste7r8ikd" path="res://assets/orderbubble.png" id="3_r26j7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0ykn"]
+atlas = ExtResource("2_4tr0r")
+region = Rect2(64, 144, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_da3od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0ykn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Client" type="Node2D" unique_id=1758475111]
+script = ExtResource("1_5f806")
+sfx_success = ExtResource("2_da3od")
+sfx_timeout = ExtResource("3_dipmf")
+
+[node name="PatienceBar" type="TextureProgressBar" parent="." unique_id=1313258419]
+offset_left = -35.0
+offset_top = -41.0
+offset_right = 29.0
+offset_bottom = -1.0
+texture_progress = ExtResource("2_r26j7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1132962108]
+scale = Vector2(3.4375, 3.4375)
+sprite_frames = SubResource("SpriteFrames_da3od")
+
+[node name="OrderBubble" type="Sprite2D" parent="." unique_id=1678409921]
+z_index = 2
+position = Vector2(74, -49)
+texture = ExtResource("3_r26j7")
+
+[node name="MaskIcon" type="Sprite2D" parent="OrderBubble" unique_id=1469928387]
+position = Vector2(6, -11)
+
+[node name="PropIcon1" type="Sprite2D" parent="OrderBubble" unique_id=598458938]
+position = Vector2(6, -11)
+
+[node name="PropIcon2" type="Sprite2D" parent="OrderBubble" unique_id=377028595]
+position = Vector2(6, -11)

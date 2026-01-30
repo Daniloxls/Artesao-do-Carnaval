@@ -1,48 +1,43 @@
 [gd_scene format=3 uid="uid://cre0xkrvjtdba"]
 
 [ext_resource type="Script" uid="uid://de1pa0cs4msix" path="res://scripts/cutting_station.gd" id="1_8i5mt"]
-[ext_resource type="Texture2D" uid="uid://bsw6yqsms1pbp" path="res://assets/Basic_Furniture.png" id="2_hr20i"]
-[ext_resource type="Texture2D" uid="uid://bcnjg6q8n6mv2" path="res://assets/keyboard_arrow_down.png" id="4_qj3ui"]
+[ext_resource type="Texture2D" uid="uid://owg0ldj1m2mk" path="res://assets/mascara_1.png" id="3_tgo50"]
+[ext_resource type="AudioStream" uid="uid://bd0ibvlmllbrj" path="res://assets/scissor_sound.mp3" id="4_4ygwa"]
+[ext_resource type="Texture2D" uid="uid://bis2hsaiydhko" path="res://assets/keyboard_arrow_up.png" id="4_qj3ui"]
+[ext_resource type="PackedScene" uid="uid://bdt8vvsrbf8ot" path="res://scenes/materials/mask.tscn" id="5_41jhn"]
 [ext_resource type="Texture2D" uid="uid://dwjvid1slblvb" path="res://assets/xbox_dpad.png" id="9_k6m2p"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_olh0b"]
-atlas = ExtResource("2_hr20i")
-region = Rect2(48, 48, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_u03e6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_olh0b")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
-size = Vector2(84, 85)
+size = Vector2(40, 32)
 
 [node name="CuttingStation" type="StaticBody2D" unique_id=1574606114]
 collision_layer = 2
 script = ExtResource("1_8i5mt")
+arrow_texture = ExtResource("4_qj3ui")
+texture_up = ExtResource("3_tgo50")
+texture_down = ExtResource("3_tgo50")
+texture_left = ExtResource("3_tgo50")
+texture_right = ExtResource("3_tgo50")
+sfx_cut_success = ExtResource("4_4ygwa")
+output_scene = ExtResource("5_41jhn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=812304036]
+visible = false
 modulate = Color(0.48953235, 0.14960733, 0.063112445, 1)
 position = Vector2(2, -1)
 scale = Vector2(6, 6)
-sprite_frames = SubResource("SpriteFrames_u03e6")
 
 [node name="ItemPoint" type="Marker2D" parent="." unique_id=1512147023]
 position = Vector2(1, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=687346212]
-position = Vector2(2, 11.5)
+position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_eotx8")
 
 [node name="SelectorUI" type="Node2D" parent="." unique_id=2113081360]
 visible = false
 z_index = 1
+position = Vector2(86, 38)
 
 [node name="IconUp" type="Sprite2D" parent="SelectorUI" unique_id=1533439956]
 position = Vector2(0, -160.00002)
