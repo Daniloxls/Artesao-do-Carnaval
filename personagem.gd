@@ -55,15 +55,14 @@ func update_animation(direction: Vector2):
 		player_sprite.stop()
 		return
 	update_interaction_direction(direction)
-	if direction.x > 0 and direction.y < 0:
-		player_sprite.play("walk_r_up")
-	elif direction.x > 0 and direction.y > 0:
-		player_sprite.play("walk_r_down")
-	elif direction.x < 0 and direction.y < 0:
-		player_sprite.play("walk_l_up")
-	elif direction.x < 0 and direction.y > 0:
-		player_sprite.play("walk_l_down")
-		
+	if direction.y < 0 and held_item != null:
+		player_sprite.play("walk_up_holding")
+	elif direction.y > 0 and held_item != null:
+		player_sprite.play("walk_down_holding")
+	elif direction.x > 0 and held_item != null:
+		player_sprite.play("walk_right_holding")
+	elif direction.x < 0 and held_item != null:
+		player_sprite.play("walk_left_holding")
 	elif direction.y < 0:
 		player_sprite.play("walk_up")
 	elif direction.y > 0:

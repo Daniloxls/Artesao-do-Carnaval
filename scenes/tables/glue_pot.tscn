@@ -1,22 +1,35 @@
 [gd_scene format=3 uid="uid://m0dtkrisgc7i"]
 
 [ext_resource type="Script" uid="uid://b4vkt35tgtryh" path="res://scripts/glue_pot.gd" id="1_avdpf"]
-[ext_resource type="Texture2D" uid="uid://b1qlv1430rp50" path="res://assets/glue_pot.png" id="1_m34ja"]
+[ext_resource type="Texture2D" uid="uid://kjv1d3seryxk" path="res://assets/panela.png" id="2_f6dk8"]
 [ext_resource type="AudioStream" uid="uid://h5s2pburgius" path="res://assets/fire_sound.mp3" id="3_f6dk8"]
-[ext_resource type="Texture2D" uid="uid://mlf8j2ongoa4" path="res://assets/alert_icon.png" id="4_f6dk8"]
-[ext_resource type="Texture2D" uid="uid://c44nmfbgfsyql" path="res://assets/progress_bar.png" id="5_f6dk8"]
+[ext_resource type="Texture2D" uid="uid://b3m8crdnh4vsb" path="res://assets/fogo.png" id="4_dckyv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avdpf"]
 size = Vector2(63, 49)
+
+[sub_resource type="Gradient" id="Gradient_rktp4"]
+colors = PackedColorArray(0.2, 0.2, 0.2, 1, 0.2, 0.2, 0.2, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f6dk8"]
+gradient = SubResource("Gradient_rktp4")
+height = 12
+
+[sub_resource type="Gradient" id="Gradient_dckyv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_auasp"]
+gradient = SubResource("Gradient_dckyv")
+height = 12
 
 [node name="GluePot" type="StaticBody2D" unique_id=1967799158]
 collision_layer = 2
 script = ExtResource("1_avdpf")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=288473507]
-position = Vector2(0, 1.953125e-06)
-scale = Vector2(0.16, 0.16000001)
-texture = ExtResource("1_m34ja")
+position = Vector2(-1, 0)
+scale = Vector2(1.0165625, 1.0165626)
+texture = ExtResource("2_f6dk8")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1552711748]
 position = Vector2(-0.5, 8.5)
@@ -29,9 +42,9 @@ stream = ExtResource("3_f6dk8")
 
 [node name="AlertIcon" type="Sprite2D" parent="." unique_id=1062901806]
 visible = false
-position = Vector2(0, -49)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("4_f6dk8")
+position = Vector2(4, -21)
+scale = Vector2(1.211875, 1.211875)
+texture = ExtResource("4_dckyv")
 
 [node name="SpawnPoints" type="Node" parent="." unique_id=1671054644]
 
@@ -40,7 +53,13 @@ clip_contents = true
 offset_left = -32.0
 offset_right = 32.0
 offset_bottom = 10.0
-texture_progress = ExtResource("5_f6dk8")
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+texture_under = SubResource("GradientTexture2D_f6dk8")
+texture_progress = SubResource("GradientTexture2D_auasp")
 
 [node name="startProgress" type="Timer" parent="." unique_id=1349946884]
 one_shot = true

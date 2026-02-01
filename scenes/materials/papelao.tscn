@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djihj5iurisfr" path="res://assets/eva.png" id="2_sx53u"]
 
 [node name="Papelao" type="Node2D" unique_id=51748142]
+y_sort_enabled = true
 script = ExtResource("1_04brx")
 item_name = "Papelão"
 

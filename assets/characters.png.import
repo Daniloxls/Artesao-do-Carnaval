@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1qlv1430rp50"
-path="res://.godot/imported/glue_pot.png-8fc23e079cd81215c5b6cf1d8b3ce9d5.ctex"
+uid="uid://bntsku1ydnqcm"
+path="res://.godot/imported/characters.png-71e65985a77efe7b4b18913c785b67f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/glue_pot.png"
-dest_files=["res://.godot/imported/glue_pot.png-8fc23e079cd81215c5b6cf1d8b3ce9d5.ctex"]
+source_file="res://assets/characters.png"
+dest_files=["res://.godot/imported/characters.png-71e65985a77efe7b4b18913c785b67f9.ctex"]
 
 [params]
 

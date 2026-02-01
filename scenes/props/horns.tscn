@@ -10,6 +10,7 @@ prop_type = "Chifres"
 item_name = "Chifres"
 
 [node name="SpriteIcon" type="Sprite2D" parent="." unique_id=1590924342]
+scale = Vector2(1.55, 1.55)
 texture = ExtResource("2_mc655")
 
 [node name="SpriteApplied" type="Sprite2D" parent="." unique_id=862869791]

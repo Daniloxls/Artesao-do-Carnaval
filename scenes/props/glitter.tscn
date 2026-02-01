@@ -10,6 +10,7 @@ prop_type = "Glitter"
 item_name = "Glitter"
 
 [node name="SpriteIcon" type="Sprite2D" parent="." unique_id=1590924342]
+scale = Vector2(1.55, 1.55)
 texture = ExtResource("2_iw5mc")
 
 [node name="SpriteApplied" type="Sprite2D" parent="." unique_id=862869791]

@@ -10,6 +10,8 @@ prop_type = "Pena"
 item_name = "Pena"
 
 [node name="SpriteIcon" type="Sprite2D" parent="." unique_id=1590924342]
+position = Vector2(9, 0)
+scale = Vector2(1.5581396, 1.5581396)
 texture = ExtResource("2_q3q63")
 
 [node name="SpriteApplied" type="Sprite2D" parent="." unique_id=862869791]

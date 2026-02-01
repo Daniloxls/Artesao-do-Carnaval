@@ -10,17 +10,24 @@ var prop_icons_ref: Dictionary = {}
 @export var sfx_success: AudioStream
 @export var sfx_timeout: AudioStream
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var mask_icon: Sprite2D = $OrderBubble/MaskIcon
 @onready var prop_icon_1: Sprite2D = $OrderBubble/PropIcon1
 @onready var prop_icon_2: Sprite2D = $OrderBubble/PropIcon2
 @onready var patience_bar: TextureProgressBar = $PatienceBar
 
+@export var color_calm: Color = Color.GREEN
+@export var color_angry: Color = Color.RED
+
+var initial_bar_pos: Vector2
+var shake_intensity: float = 0.0
+
 var total_time: float = 45.0
 var current_time: float = 0.0
 
 signal client_left(success: bool)
-
+var possible_sprites = ["a", "b", "c", "d", "e"]
 
 func setup_order(color: Color, texture: Texture2D, props: Array[String], prop_textures: Dictionary):
 	required_color = color
@@ -29,9 +36,13 @@ func setup_order(color: Color, texture: Texture2D, props: Array[String], prop_te
 	prop_icons_ref = prop_textures 
 
 func _ready():
+	if animated_sprite_2d:
+		var chosen_sprite = possible_sprites.pick_random()
+		animated_sprite_2d.play("client_" + chosen_sprite, 0.0)
 	if patience_bar:
 		patience_bar.max_value = total_time
 		patience_bar.value = total_time
+		initial_bar_pos = patience_bar.position
 	
 	update_visuals()
 
@@ -54,7 +65,18 @@ func update_visuals():
 func _process(delta):
 	current_time += delta
 	if patience_bar:
-		patience_bar.value = total_time - current_time
+		var time_left = total_time - current_time
+		patience_bar.value = time_left
+		var percent = time_left / total_time
+		patience_bar.tint_progress = color_angry.lerp(color_calm, percent)
+		if percent < 0.3:
+			animated_sprite_2d.frame = 3
+			shake_intensity = (0.3 - percent) * 10.0 
+			apply_shake()
+		else:
+			shake_intensity = 0.0
+			patience_bar.position = initial_bar_pos # Reseta posição
+			
 	
 	if current_time >= total_time:
 		leave(false)
@@ -76,12 +98,24 @@ func receive_delivery(item: GameItem) -> bool:
 	return true
 
 func leave(success: bool):
+	var tween = create_tween()
 	if success:
+		animated_sprite_2d.frame = 2
 		if sfx_success:
 			AudioManager.play_sfx(sfx_success)
 	else:
 		if sfx_timeout:
 			AudioManager.play_sfx(sfx_timeout)
 			
-	emit_signal("client_left", success)
-	queue_free()
+	tween.tween_interval(1.0)
+	tween.tween_callback(emit_signal.bind("client_left", success))
+	tween.tween_callback(queue_free)
+	#emit_signal("client_left", success)
+	#queue_free()
+
+func apply_shake():
+	var offset = Vector2(
+		randf_range(-shake_intensity, shake_intensity),
+		randf_range(-shake_intensity, shake_intensity)
+	)
+	patience_bar.position = initial_bar_pos + offset

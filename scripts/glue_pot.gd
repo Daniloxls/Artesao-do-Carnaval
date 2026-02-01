@@ -8,6 +8,13 @@ extends StaticBody2D
 
 @export var timeToExplode = 30
 @export var splash_sound : AudioStream
+
+@export_group("Visuals")
+@export var color_safe: Color = Color.GREEN
+@export var color_danger: Color = Color.RED
+var initial_bar_pos: Vector2
+var shake_intensity: float = 0.0
+
 var lines : Array[String] = [
 	"Jà passei cola neste!",
 	"Cola demais estraga!",
@@ -25,8 +32,11 @@ var isStirring = false
 var isCold = false
 var activePlayer: CharacterBody2D = null
 
+func _ready() -> void:
+	if progressBar:
+		initial_bar_pos = progressBar.position
+
 func _process(delta: float) -> void:
-	
 	var interact_action = "ui_accept"
 	if activePlayer != null:
 		interact_action = "p" + str(activePlayer.player_id) + "_interact"
@@ -37,15 +47,39 @@ func _process(delta: float) -> void:
 		else:
 			release_player()
 			
-
 	elif activePlayer != null:
 		release_player()
-
 
 	if not isStirring and not isCold:
 		increase_pressure(delta)
 		
+	# --- ATUALIZAÇÃO VISUAL ---
+	update_visuals()
+
+
+func update_visuals():
+	if not progressBar: return
+	
 	progressBar.value = progress
+	
+	var percent = progress / 100.0
+	
+	progressBar.tint_progress = color_safe.lerp(color_danger, percent)
+	
+	if percent > 0.7:
+		shake_intensity = (percent - 0.7) * 15.0 
+		apply_shake()
+	else:
+		shake_intensity = 0.0
+		progressBar.position = initial_bar_pos
+
+
+func apply_shake():
+	var offset = Vector2(
+		randf_range(-shake_intensity, shake_intensity),
+		randf_range(-shake_intensity, shake_intensity)
+	)
+	progressBar.position = initial_bar_pos + offset
 
 
 func perform_stir(delta: float):
@@ -53,17 +87,14 @@ func perform_stir(delta: float):
 	activePlayer.is_locked = true
 	activePlayer.velocity = Vector2.ZERO
 	
-
 	spawnTimer.stop()
 	if isPlayingAlert:
 		alert_sfx.playing = false
 		alert_icon.visible = false
 		isPlayingAlert = false
 	
-
 	progress -= (100.0 / timeToExplode) * delta * 2
 	
-
 	if progress <= 0:
 		progress = 0
 		isCold = true
@@ -96,7 +127,6 @@ func interact(player: CharacterBody2D):
 		if not mask.with_glue:
 			mask.with_glue = true
 			
-			# Opcional: Tocar som de "splash"
 			activePlayer = null 
 		else:
 			DialogManager.start_message($DialogSpawner.global_position, lines.pick_random())
@@ -110,7 +140,9 @@ func _on_spawn_timer_timeout() -> void:
 	newPuddle.position = Vector2(rand_x, rand_y)
 	newPuddle.z_index = -1
 	get_parent().add_child(newPuddle)
-	AudioManager.play_sfx(splash_sound)
+	
+	if splash_sound:
+		AudioManager.play_sfx(splash_sound)
 
 func _on_start_progress_timeout() -> void:
 	isCold = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mlf8j2ongoa4"
-path="res://.godot/imported/alert_icon.png-62cf13060581630c3d6ec9ab99f24f67.ctex"
+uid="uid://gorpjp3yb1i4"
+path="res://.godot/imported/balaozin.png-d46a2c3e6b479913078ef2a30ec68125.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/alert_icon.png"
-dest_files=["res://.godot/imported/alert_icon.png-62cf13060581630c3d6ec9ab99f24f67.ctex"]
+source_file="res://assets/balaozin.png"
+dest_files=["res://.godot/imported/balaozin.png-d46a2c3e6b479913078ef2a30ec68125.ctex"]
 
 [params]
 

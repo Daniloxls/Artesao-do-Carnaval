@@ -6,12 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://dwjvid1slblvb" path="res://assets/xbox_dpad.png" id="3_ekync"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eotx8"]
-size = Vector2(40, 35)
+size = Vector2(40, 27)
 
 [node name="MultiColorSource" type="StaticBody2D" unique_id=936571725]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_xl6nt")
+color_up = Color(0.99607843, 0, 0, 1)
+color_down = Color(0, 0, 0.99607843, 1)
+color_left = Color(0, 0.5137255, 0, 1)
+color_right = Color(1, 0, 0.99607843, 1)
 pick_up_sound = ExtResource("2_xl6nt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2061457135]
@@ -21,7 +25,7 @@ position = Vector2(2, -1)
 scale = Vector2(6, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1658189886]
-position = Vector2(1, -4.5)
+position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_eotx8")
 
 [node name="ItemPoint" type="Marker2D" parent="." unique_id=1823882331]
@@ -32,22 +36,22 @@ visible = false
 
 [node name="IconUp" type="Sprite2D" parent="SelectorUI" unique_id=1581743894]
 position = Vector2(0, -160.00002)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.835, 0.835)
 texture = ExtResource("2_rt4al")
 
 [node name="IconDown" type="Sprite2D" parent="SelectorUI" unique_id=655851637]
 position = Vector2(0, -40.000034)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.835, 0.835)
 texture = ExtResource("2_rt4al")
 
 [node name="IconLeft" type="Sprite2D" parent="SelectorUI" unique_id=357276535]
 position = Vector2(-60.999996, -100.00004)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.835, 0.835)
 texture = ExtResource("2_rt4al")
 
 [node name="IconRight" type="Sprite2D" parent="SelectorUI" unique_id=321334279]
 position = Vector2(60.999996, -100.00004)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.835, 0.835)
 texture = ExtResource("2_rt4al")
 
 [node name="Cross" type="Sprite2D" parent="SelectorUI" unique_id=1729999087]
